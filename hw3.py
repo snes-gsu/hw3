@@ -1,10 +1,13 @@
+
+from asyncio.windows_events import NULL
 #---Task 1---
 # Returns True if the input string has more vowels than consonants
-from asyncio.windows_events import NULL
+# Returns False if the input string has more consonants than vowels
+# Returns None (this is the Python equivalent of null) if the input string has an equal number of consonants and vowels. We’ll ignore type safety for now!
 
-vowel_count = 0
-const_count = 0
 def more_vowels_than_constants(str):
+    vowel_count = 0
+    const_count = 0
     for i in str:
         if i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u':
             vowel_count += 1
@@ -18,11 +21,12 @@ def more_vowels_than_constants(str):
         return NULL
 print(more_vowels_than_constants("Python"))
    
-# Returns False if the input string has more consonants than vowels
-# Returns None (this is the Python equivalent of null) if the input string has an equal number of consonants and vowels. We’ll ignore type safety for now!
-
 # ---Task 2---
 # The volume of a cylinder is given by the formula V = πhr^2. Given a radius R and height H as inputs return the volume of a cylinder with radius R and height H
+def cylinder_volume(radius, height):
+    volume = math.pi * (radius ** 2) * height
+    return volume
+print(cylinder_volume(3,5))
 
 #---Task 3---
 # Comma-separated values (CSV) is a popular format for storing data. For the first step of the CSV portion of this assignment, write a function that takes a list of strings as inputs, and returns a single string created by joining all the input strings together, with a comma separating them.
