@@ -1,8 +1,12 @@
 
 from asyncio.windows_events import NULL
 from platform import win32_edition
-from tkinter.messagebox import RETRY; win32_edition
+from tkinter.messagebox import RETRY
+
+from jinja2 import UndefinedError; win32_edition
 import os
+import math 
+ 
 #---Task 1---
 # Returns True if the input string has more vowels than consonants
 # Returns False if the input string has more consonants than vowels
@@ -64,11 +68,34 @@ def reverse(csv):
     return csv
 
 #---Task 6---
-# Error-handling is an important part of writing web apps, especially when your app talks to potentially unreliable third-party APIs. This problem will have you practice the try/except keywords in Python. Write a function that takes two numbers and divides the first one by the second. You should catch the error if the second number is zero and print a warning instead of crashing.
-
+# Error-handling is an important part of writing web apps, 
+# especially when your app talks to potentially unreliable third-party APIs. 
+# This problem will have you practice the try/except keywords in Python. 
+# Write a function that takes two numbers and divides the first one by the second. 
+# You should catch the error if the second number is zero and print a warning instead of crashing.
+try:
+    def two_nums(a,b):
+        divisor = a/b
+        return divisor
+except ZeroDivisionError:
+    print("warning")
 
 #---Task 7---
 # Write a function that takes a list of integers and returns the same list, but without any duplicates.
+def no_duplicates(int_list):
+    int_list = {1,2,3,4}
+    return int_list
+print (no_duplicates({1,2,3,4}))
 
 #---Task 8---
-# In Python, you can write code that interacts with other parts of your operating system. Write a function that creates a new folder called “hw3-folder” inside the current directory (the one where your code is running).
+# In Python, you can write code that interacts with other parts of your operating system. 
+# Write a function that creates a new folder called “hw3-folder” inside the current directory (the one where your code is running).
+
+def new_folder():
+    hw3 = os.getcwd()
+    final_directory = os.path.join(hw3, r('hw3-folder'))
+    if not os.path.exists(final_directory):
+        os.makedirs(final_directory)
+
+
+
