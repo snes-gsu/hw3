@@ -50,7 +50,7 @@ def abspath(list_strings):
     list_strings = [['s', 'i', 'd', 'r'],['e', 'f'],['g', 'h', 'i']]
 #using join function to combine lists
 #create file and path and returning path where strings were written
-    ' '.join(list_strings)
+    list_strings.join(' ')
     file = open('list_strings', 'a')
     file.write("I am writing to a file")
     file.close()
@@ -65,7 +65,7 @@ def reverse(csv):
     csv.join(',')
     file = open('csv', 'r')
     print(file.read())
-    return csv
+    return file
 
 #---Task 6---
 # Error-handling is an important part of writing web apps, 
@@ -83,7 +83,7 @@ except ZeroDivisionError:
 #---Task 7---
 # Write a function that takes a list of integers and returns the same list, but without any duplicates.
 def no_duplicates(int_list):
-    int_list = {8}
+    int_list = {}
     return int_list
 print (no_duplicates({4,3,6,7}))
 
