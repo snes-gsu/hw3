@@ -1,9 +1,9 @@
 
 from asyncio.windows_events import NULL
 from platform import win32_edition
+import resource
 from tkinter.messagebox import RETRY
-
-from jinja2 import UndefinedError; win32_edition
+from jinja2 import win32_edition
 import os
 import math 
  
@@ -12,7 +12,7 @@ import math
 # Returns False if the input string has more consonants than vowels
 # Returns None (this is the Python equivalent of null) if the input string has an equal number of consonants and vowels. We’ll ignore type safety for now!
 
-def more_vowels_than_constants(str):
+def vowels_and_consonants(str):
     vowel_count = 0
     const_count = 0
     for i in str:
@@ -25,8 +25,8 @@ def more_vowels_than_constants(str):
     elif vowel_count < const_count:
         return False
     else:
-        return NULL
-print(more_vowels_than_constants("Python"))
+        return None
+print(vowels_and_consonants("Python"))
    
 # ---Task 2---
 # The volume of a cylinder is given by the formula V = πhr^2. Given a radius R and height H as inputs return the volume of a cylinder with radius R and height H
@@ -39,7 +39,7 @@ print(cylinder_volume(3,5))
 # Comma-separated values (CSV) is a popular format for storing data. For the first step of the CSV portion of this assignment, write a function that takes a list of strings as inputs, and returns a single string created by joining all the input strings together, with a comma separating them.
 def csv_strings(names):
     names = ['Sade', 'John', 'Ahmed']
-    ','.join(names)
+    names.join(',')
     return names
 print(csv_strings(['Josh', 'Chris', 'Jacob']))
 #---Task 4---
@@ -62,7 +62,7 @@ def abspath(list_strings):
 # list in the output list (and each value between the commas in the file row is one element in the list).
 def reverse(csv):
     csv = [['s', 'i', 'd', 'r'],['e', 'f'],['g', 'h', 'i']]
-    ','.join(csv)
+    csv.join(',')
     file = open('csv', 'r')
     print(file.read())
     return csv
@@ -83,9 +83,9 @@ except ZeroDivisionError:
 #---Task 7---
 # Write a function that takes a list of integers and returns the same list, but without any duplicates.
 def no_duplicates(int_list):
-    int_list = {1,2,3,4}
+    int_list = {8}
     return int_list
-print (no_duplicates({1,2,3,4}))
+print (no_duplicates({4,3,6,7}))
 
 #---Task 8---
 # In Python, you can write code that interacts with other parts of your operating system. 
@@ -93,7 +93,7 @@ print (no_duplicates({1,2,3,4}))
 
 def new_folder():
     hw3 = os.getcwd()
-    final_directory = os.path.join(hw3, r('hw3-folder'))
+    final_directory = os.path.join(hw3, resource('hw3-folder'))
     if not os.path.exists(final_directory):
         os.makedirs(final_directory)
 
